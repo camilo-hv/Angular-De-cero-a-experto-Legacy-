@@ -115,16 +115,90 @@ Tamplate literales
 
 })();
 
-funciones
-*/
-(function () {
-    function activar(quien, momento, objeto = 'Batiseñal') {
-        if (momento) {
+funciones con parametros opcionles, obligatorios y por defecto
+
+(function(){
+
+    function activar(quien:string,
+                     momento?:string,
+                     objeto:string = 'Batiseñal' ){
+
+        if(momento){
             console.log(`${quien} activa ${objeto} en ${momento}`);
-        }
-        else {
+        } else{
             console.log(`${quien} activa ${objeto}`);
         }
     }
+
     activar('Gordon');
+
+})();
+
+funciones flecha
+
+(function(){
+
+    //Funcion tradicional
+    function miFuncion ( a: string ){
+        return a.toUpperCase();
+    }
+
+    //Funcion asignada a una variable
+    let miFuncion2 = function( a: string ){
+        return a;
+    }
+
+    const miFuncion3 = function( a: string ){
+        return a;
+    }
+
+    //Funcion flecha en caso de una sola linea de codigo y es el return se usa así
+    const miFuncion4 = ( a: string ) => a.toUpperCase();
+
+    console.log(miFuncion4('Flecha'));
+    console.log(miFuncion('Normal'));
+
+
+    const sumar = function( a: number, b: number ){
+        return a + b;
+    }
+
+
+    const sumarF = (a: number, b: number) => a+b;
+
+
+    console.log(sumar(1,2));
+    console.log(sumarF(1,2));
+
+
+    const hulk = {
+        nombre : 'Hulk',
+        smash() {
+            setTimeout(() => {
+                console.log(`${this.nombre} samsh!!`)
+            }, 1000);
+        }
+    }
+
+    hulk.smash();
+
+})();
+
+Desestructuracion de objetos y arreglos
+*/
+(function () {
+    //Forma tradicional
+    const avenger = {
+        nombre: 'Steve',
+        apodo: 'Capitan America',
+        poder: 'Droga'
+    };
+    console.log(avenger.nombre);
+    console.log(avenger.apodo);
+    console.log(avenger.poder);
+    //Para extraer de manera inmediata propiedades extraidas
+    const { nombre, apodo, poder } = avenger;
+    console.log(nombre);
+    console.log(apodo);
+    console.log(poder);
 })();
