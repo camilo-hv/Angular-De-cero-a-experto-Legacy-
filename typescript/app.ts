@@ -4,9 +4,7 @@ En la terminal usar el comando tsc --version debe ser superior a la Version 3
 De manera manual tsc app.ts
 De manera automatica tsc --init esto crea un archivo de configuración de ts tsconfig.json
 tsc -w o tsc --watch modo observador o watch compila o traduce a js para cuando haya cambios
-*/
 
-/*
 Funcion anonima auto-invocada o base de patron modulo de JS
 (function(){
     function saludar( nombre:string ) {
@@ -20,9 +18,7 @@ Funcion anonima auto-invocada o base de patron modulo de JS
 
     saludar( wolverine.nombre );    
 })();
-*/
 
-/*
 var - let
 (function(){
     //let funciona dentro de cada scope(llaves - en cada llave "crea una nueva variable") y cada vez que uso let crea un nuevo scope/espacio de memoria
@@ -45,14 +41,8 @@ var - let
     console.log(mensaje);
 
 
-
-
 })();
-*/
 
-
-
-/*
 var - let - const
 (function(){
 
@@ -71,9 +61,7 @@ var - let - const
     console.log(mensaje);
 
 })();
-*/
 
-/*
 Tipos de datos
 (function(){
 
@@ -107,10 +95,7 @@ Tipos de datos
 
 
 })();
-*/
 
-
-/*
 Tamplate literales
 (function(){
 
@@ -128,10 +113,44 @@ Tamplate literales
     console.log(salida);
 
 })();
+
+funciones
+
+(function(){
+
+    function activar(quien:string,
+                     momento?:string,
+                     objeto:string = 'Batiseñal' ){
+
+        if(momento){
+            console.log(`${quien} activa ${objeto} en ${momento}`);
+        } else{
+            console.log(`${quien} activa ${objeto}`);
+        }
+    }
+
+    activar('Gordon');    
+
+})();
+
+funciones flecha
 */
+(function(){
 
+    function activar(quien:string,
+                     momento?:string,
+                     objeto:string = 'Batiseñal' ){
 
+        if(momento){
+            console.log(`${quien} activa ${objeto} en ${momento}`);
+        } else{
+            console.log(`${quien} activa ${objeto}`);
+        }
+    }
 
+    activar('Gordon');    
+
+})();
 
 
 
