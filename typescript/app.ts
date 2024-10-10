@@ -5,8 +5,11 @@ De manera manual tsc app.ts
 De manera automatica tsc --init esto crea un archivo de configuración de ts tsconfig.json
 tsc -w o tsc --watch modo observador o watch compila o traduce a js para cuando haya cambios
 
+
+
 Funcion anonima auto-invocada o base de patron modulo de JS
 (function(){
+
     function saludar( nombre:string ) {
         console.table( 'Hola ' + nombre ); // Hola Logan
     }
@@ -18,6 +21,8 @@ Funcion anonima auto-invocada o base de patron modulo de JS
 
     saludar( wolverine.nombre );    
 })();
+
+
 
 var - let
 (function(){
@@ -43,6 +48,8 @@ var - let
 
 })();
 
+
+
 var - let - const
 (function(){
 
@@ -61,6 +68,8 @@ var - let - const
     console.log(mensaje);
 
 })();
+
+
 
 Tipos de datos
 (function(){
@@ -96,6 +105,8 @@ Tipos de datos
 
 })();
 
+
+
 Tamplate literales
 (function(){
 
@@ -114,8 +125,9 @@ Tamplate literales
 
 })();
 
-funciones con parametros opcionles, obligatorios y por defecto
 
+
+Funciones con parametros opcionles, obligatorios y por defecto
 (function(){
 
     function activar(quien:string,
@@ -133,8 +145,9 @@ funciones con parametros opcionles, obligatorios y por defecto
 
 })();
 
-funciones flecha
 
+
+Funciones flecha
 (function(){
 
     //Funcion tradicional
@@ -183,10 +196,12 @@ funciones flecha
 
 })();
 
+
+
 Desestructuracion de objetos y arreglos
-*/
 (function(){
 
+    //Objeto
     //Forma tradicional
     const avenger = {
         nombre: 'Steve',
@@ -198,10 +213,72 @@ Desestructuracion de objetos y arreglos
     console.log(avenger.apodo);
     console.log(avenger.poder);
 
-    //Para extraer de manera inmediata propiedades extraidas
+    //Forma desestructurada
+    //Para extraer de manera inmediata propiedades del objeto sin usar this o el nombre(avenger), no importa el orden
     const {nombre, apodo, poder} = avenger;
     console.log(nombre);
     console.log(apodo);
     console.log(poder);
 
+
+    //Se puede usar en una funcion
+    const extraer = ({nombre, poder}: any) => {
+
+        console.log(nombre);
+        console.log(apodo);
+        console.log(poder);
+    }
+    
+    //extraer(avenger);
+   
+    //Arreglo
+
+    //{} - Objeto
+    //[] - Arreglo    
+    //Para extraer de manera inmediata propiedades del arreglo sin usar this o el nombre(avengers), si importa el orden
+    const avengers: string[] = ['Thor', 'Ironman', 'Spiderman'];
+
+    // const [loki , hierro, arana] = avengers;
+    // console.log(loki);
+    // console.log(hierro);
+    // console.log(arana);
+    
+    //Para indicar el dato que me importa
+    
+    const [ , , arana] = avengers;
+    //console.log(arana);
+
+    //Se puede usar en una funcion
+    const extraer = ([Thor, Ironman, Spiderman]:string[]) => {
+        console.log(Thor);
+        console.log(Ironman);
+        console.log(Spiderman);
+    }
+
+    extraer(avengers);
 })();
+
+Promesas - Sirven para ejecutar el codigo sin bloquear el codigo
+*/
+(()=>{
+ 
+    
+    
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
