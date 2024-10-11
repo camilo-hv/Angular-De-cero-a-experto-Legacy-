@@ -259,7 +259,22 @@ Desestructuracion de objetos y arreglos
     extraer(avengers);
 })();
 
-Promesas - Sirven para ejecutar el codigo sin bloquear el codigo
+Promesas/Promise - Sirven para ejecutar el codigo sin bloquear el codigo
 */
 (() => {
+    console.log('Inicio');
+    //resolve - cuando todo funciona sin error
+    //reject - cuando se tiene un error
+    const prom1 = new Promise((resolve, reject) => {
+        // setTimeout(() => {
+        //     resolve('Termino TimeOut');
+        // }, 1000);
+        setTimeout(() => {
+            reject('Warning');
+        }, 1000);
+    });
+    prom1
+        .then(mensaje => console.log(mensaje))
+        .catch(err => console.warn(err));
+    console.log('Fin');
 })();
