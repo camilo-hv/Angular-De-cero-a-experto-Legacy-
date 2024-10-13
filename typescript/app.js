@@ -260,21 +260,130 @@ Desestructuracion de objetos y arreglos
 })();
 
 Promesas/Promise - Sirven para ejecutar el codigo sin bloquear el codigo
-*/
-(() => {
+(()=>{
+ 
     console.log('Inicio');
-    //resolve - cuando todo funciona sin error
-    //reject - cuando se tiene un error
-    const prom1 = new Promise((resolve, reject) => {
+
+    //resolve - then - cuando todo funciona sin error
+    //reject - catch - cuando se tiene un error
+    const prom1 = new Promise((resolve, reject ) =>{
         // setTimeout(() => {
         //     resolve('Termino TimeOut');
         // }, 1000);
+
         setTimeout(() => {
             reject('Warning');
         }, 1000);
     });
+
     prom1
-        .then(mensaje => console.log(mensaje))
-        .catch(err => console.warn(err));
+        .then(mensaje => console.log(mensaje)) //resolve
+        .catch(err => console.warn(err)); //reject
+
+
     console.log('Fin');
+
+    
 })();
+
+
+
+Promesas y tipado
+(() => {
+    const retirarDinero = (montoRetirar: number): Promise<number> => {
+    
+        let dineroActual = 1000
+
+        return new Promise((resolve, reject) => {
+            if (montoRetirar > dineroActual)
+            {
+                reject('Saldo insufisiente');
+            } else{
+                dineroActual -= montoRetirar;
+                resolve(dineroActual);
+            }
+        });
+        
+
+    }
+
+    retirarDinero(1500)
+        .then(montoActual => console.log(montoActual))
+        .catch(console.warn);
+
+})();
+
+
+
+Interfaces
+(() => {
+
+    interface Xmen {
+        nombre: string;
+        edad: number;
+        poder?: string;
+    }
+
+
+    const enviarMision = (xmen: Xmen) => {
+        console.log(`El Xmen ${xmen.nombre} de ${xmen.edad} años, fue enviado a mision`);
+    }
+
+    const regrsarCuartel = (xmen: Xmen) => {
+        console.log(`El Xmen ${xmen.nombre} de ${xmen.edad} años, fue enviado al cuartel`);
+    }
+
+
+    const wolverine:Xmen = {
+        nombre: 'Logan',
+        edad: 40
+    }
+
+
+    enviarMision(wolverine);
+    regrsarCuartel(wolverine);
+
+
+})();
+
+
+
+Clase y Constructor
+(() => {
+
+        class Avenger {
+
+        //     nombre: string;
+        //     equipo: string;
+        //     nombreReal: string;
+        //     puedePelear: string;
+        //     peleasGanadas: string;
+            
+        //     constructor( nombre: string, equipo: string) {
+        //         this.nombre = nombre;
+        //         this.equipo = equipo;
+        //     }
+        // }
+
+        // const antman = new Avenger('Antman', 'Capi');
+        
+        // console.log(antman)
+
+    
+            
+
+        constructor( public nombre: string,
+                     public equipo: string,
+                     public nombreReal?: string,
+                     public puedePelear: boolean = true,
+                     public peleasGanadas: number = 0) {}
+
+        }
+
+        const antman = new Avenger('Antman', 'Capi');
+        
+        console.log(antman);
+
+})();
+
+*/
